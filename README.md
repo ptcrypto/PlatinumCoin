@@ -1,0 +1,4 @@
+PlatinumCoin
+============
+
+Official PTC Repo
