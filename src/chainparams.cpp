@@ -51,21 +51,21 @@ public:
         txNew.vin.resize(1);
         txNew.vout.resize(1);
         txNew.vin[0].scriptSig = CScript() << 486604799 << CBigNum(4) << vector<unsigned char>((const unsigned char*)pszTimestamp, (const unsigned char*)pszTimestamp + strlen(pszTimestamp));
-        txNew.vout[0].nValue = 78 * COIN;
+        txNew.vout[0].nValue = 1 * COIN;
         txNew.vout[0].scriptPubKey = CScript() << ParseHex("") << OP_CHECKSIG;
         genesis.vtx.push_back(txNew);
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
-        genesis.nTime    = 1388090594;
+        genesis.nTime    = 1389541878;
         genesis.nBits    = 0x1e0fffff;
-        genesis.nNonce   = 87898;
+        genesis.nNonce   = 207878;
 
         //// debug print
        hashGenesisBlock = genesis.GetHash();
-         while (hashGenesisBlock > bnProofOfWorkLimit.getuint256()){
-        if (++genesis.nNonce==0) break;
-       hashGenesisBlock = genesis.GetHash();
+     //    while (hashGenesisBlock > bnProofOfWorkLimit.getuint256()){
+     //   if (++genesis.nNonce==0) break;
+     //  hashGenesisBlock = genesis.GetHash();
      }
 
         printf("%s\n", hashGenesisBlock.ToString().c_str());
@@ -74,10 +74,10 @@ public:
         genesis.print();
 
 
-        assert(hashGenesisBlock == uint256("0x0000073d5f05f35a295f334876dae4792c2c496d214a829df3dfd5c1bf34a227"));
-        assert(genesis.hashMerkleRoot == uint256("0x879a3f35cfa32a0466c5263f3fc3ddc0a28a8519f4ec80d85327cd8585ff1f8c"));
+        assert(hashGenesisBlock == uint256("0x000007136984225e1b99105f0c5b7a204de8ff1c33c95693845c2618f191f429"));
+        assert(genesis.hashMerkleRoot == uint256("0xad7d1cacc33f2e044deeab430ca6f59c3cf92351298ff94c487dfdd2d7884e9d"));
 
-        vSeeds.push_back(CDNSSeedData("pltpool.plt.co.in", "pltpool.plt.co.in"));
+        vSeeds.push_back(CDNSSeedData("platinumcrypto.com", "platinumcrypto.com"));
 
 
         base58Prefixes[PUBKEY_ADDRESS] = 55;
